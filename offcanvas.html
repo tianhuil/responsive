@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Column Drop</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <nav>
+      <h1>Nav</h1>
+      <button class="menu">Close</button>
+    </nav>
+    <main>
+      <h1>Main</h1>
+      <button class="menu">Menu</button>
+    </main>
+  </body>
+  <style>
+    html, body, main {
+      height: 100%;
+      width: 100%;
+      margin: 0px;
+    }
+
+    h1 {
+      margin: 0px;
+      padding: 24px;
+    }
+
+    button.menu {
+      margin: 24px;
+    }
+
+    main {
+      background-color: blue;
+    }
+
+    nav {
+      background-color: green;
+      margin: 0px
+    }
+
+    nav {
+      width: 300px;
+      height: 100%;
+      position: absolute;
+      -webkit-transform: translate(-300px, 0);
+      transform: translate(-300px, 0);
+      transition: transform 0.3s ease;
+    }
+
+    nav.open {
+      transform: translate(0, 0);
+    }
+
+    @media screen and (min-width: 600px) {
+      nav {
+        position: relative;
+        transform: translate(0, 0);
+      }
+      body {
+        display: flex;
+        flex-flow: row nowrap;
+      }
+      main {
+        margin: 0px;
+        width: auto;
+        flex-grow: 1;
+      }
+    }
+  </style>
+  <script
+    src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+  </script>
+  <script type="text/javascript">
+    $("button.menu").on('click', function() {
+      $("nav").toggleClass("open");
+    });
+  </script>
+</html>
